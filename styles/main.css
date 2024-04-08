@@ -1,0 +1,43 @@
+
+.container {
+    /* käytin remiä koska se on toimii paremmin responsiivisessa sivussa*/
+    width: 43.75rem; /* tämä on 700 px*/
+    height: 40.625rem; /* tämä on 600px*/
+    text-align: center;
+    position: relative; /* Lisätty sijainti */
+    margin: 0 auto; /* Keskitetään container */
+    overflow: hidden; /* Rajoitetaan sisällön näyttäminen containerin ulkopuolelle */
+    border: 2px solid black;
+    font-size: small;
+}
+
+#seuraava {
+    position: absolute;
+    right: 1%; 
+    bottom: 1%; 
+    width: 35%; 
+    height: 30%; 
+}
+
+#takaisin {
+    position: absolute;
+    left: 1%; 
+    bottom: 1%; 
+    width: 35%; 
+    height: 30%; 
+}
+
+div.ex3 {
+    background-color: white;
+    width: 60%; /* Pienennetty prosenttiosuutta */
+    height: 30%; /* Pienennetty prosenttiosuutta */
+    overflow: auto;
+    text-align: left;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 5px; /* Pienennetty paddingia */
+    
+}

@@ -1,0 +1,17 @@
+
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+
+#play{
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    width: 35%;
+    height: 15%;
+}

@@ -1,0 +1,36 @@
+.option-button{
+    width: 40%;
+    height: 80px; /* Muutettu prosentuaaliseksi */
+    line-height: 100%; /* Varmista, että nappien teksti on keskitetty */
+}
+
+#button1{
+    position: relative;
+    right: 2rem;
+    top: 9rem;
+}
+
+#button2{
+    position: relative;
+    left: 2rem;
+    top: 9rem;
+}
+
+#button3{
+    position: relative;
+    right: 2rem;
+    top: 14rem;
+}
+
+#button4{
+    position: relative;
+    left: 2rem;
+    top: 14rem;
+}
+
+#question{
+    position: relative;
+    top: 4rem;
+}
+
+

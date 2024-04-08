@@ -1,0 +1,11 @@
+.ainesosat {
+    position: absolute;
+    right: 2%; /* Pienennetty prosenttiosuutta */
+    bottom: 2%; /* Pienennetty prosenttiosuutta */
+    text-align: left;
+}
+
+picture{
+    position: relative;
+    bottom: 3.4%;
+}
