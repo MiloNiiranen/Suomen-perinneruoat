@@ -33,4 +33,18 @@
     top: 4rem;
 }
 
+#next-button{
+    position: relative;
+    top: 20rem;
+    left: 16rem;
+    height: 4rem;
+    width: 6rem;
+}
+
+#question-count{
+    position: relative;
+    bottom: 13rem;
+    font-size: xx-large;
+}
+
 
