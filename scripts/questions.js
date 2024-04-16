@@ -32,7 +32,7 @@ const questions = [
 {
     question: "Mikä näistä ruoista on perinteisesti tarjoiltu useammin jouluna?",
     options: ["Poronkäristys", "Karjalanpiirakka", "Mämmi", "Ei mikään näistä"],
-    correctAnswer: 3
+    correctAnswer: 0
 },
 {
     question: "Mikä näistä ruoista on ollut osa suomalaista ruokaperinnettä jo vuosisatojen ajan?",
@@ -68,38 +68,31 @@ optionButtons.forEach(button => {
     });
 });
 
+nextButton.style.display = 'none';
+
 nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showCurrentQuestion();
-    } else {
-        // Kaikki kysymykset on käyty läpi
-        // Tähän voit lisätä koodin seuraavaa toimintoa varten
+    // Piilotetaan seuraava-nappula
+    nextButton.style.display = 'none';
+    
+    // Tarkista, onko käyttäjä vastannut nykyiseen kysymykseen
+    let userHasAnswered = false;
+    optionButtons.forEach(button => {
+        if (button.classList.contains('answered')) {
+            userHasAnswered = true;
+        }
+    });
+
+    // Siirry seuraavaan kysymykseen vain, jos käyttäjä on vastannut nykyiseen kysymykseen
+    if (userHasAnswered) {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showCurrentQuestion();
+        } else {
+            const correctAnswers = calculateCorrectAnswers();
+            sessionStorage.setItem('correctCount', correctAnswers); // Tallenna oikein vastattujen kysymysten määrä sessionStorageen
+            window.location.href = 'results.html'; // Siirry tulossivulle
+        }
     }
-});
-
-nextButton.style.display = 'none'; // Piilotetaan nappi aluksi
-
-nextButton.addEventListener('click', () => {
-   // Tarkista, onko käyttäjä vastannut nykyiseen kysymykseen
-   let userHasAnswered = false;
-   optionButtons.forEach(button => {
-       if (button.classList.contains('answered')) {
-           userHasAnswered = true;
-       }
-   });
-
-   // Siirry seuraavaan kysymykseen vain, jos käyttäjä on vastannut nykyiseen kysymykseen
-   if (userHasAnswered) {
-       currentQuestionIndex++;
-       if (currentQuestionIndex < questions.length) {
-           showCurrentQuestion();
-           nextButton.style.display = 'none'; // Piilotetaan nappi aluksi
-       } else {
-           // Kaikki kysymykset on käyty läpi
-           // Tähän voit lisätä koodin seuraavaa toimintoa varten
-       }
-   }
 });
 
 
@@ -125,7 +118,10 @@ function checkAnswer(selectedOption) {
     const selectedButton = Array.from(optionButtons).find(button => button.textContent === selectedOption);
     selectedButton.classList.add('answered');
 
-    if (currentQuestion.options[selectedButton.dataset.index] === currentQuestion.options[correctAnswerIndex]) {
+    // Tallenna valitun vaihtoehdon indeksi
+    currentQuestion.answeredIndex = Array.from(optionButtons).indexOf(selectedButton);
+
+    if (currentQuestion.options[currentQuestion.answeredIndex] === currentQuestion.options[correctAnswerIndex]) {
         selectedButton.style.backgroundColor = 'green';
     } else {
         selectedButton.style.backgroundColor = 'red';
@@ -145,5 +141,17 @@ function shuffleArray(array) {
         [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
     }
     return shuffledArray;
+}
+
+// Funktio laskee oikeiden vastausten määrän
+function calculateCorrectAnswers() {
+    let correctCount = 0;
+    shuffledQuestions.forEach(question => {
+        if (question.options[question.correctAnswer] === question.options[question.answeredIndex]) {
+            correctCount++;
+        }
+    });
+    sessionStorage.setItem('correctCount', correctCount); // Tallenna oikeiden vastausten määrä sessionStorageen
+    return correctCount;
 }
 

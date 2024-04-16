@@ -41,3 +41,15 @@ div.ex3 {
     padding: 5px; /* Pienennetty paddingia */
     
 }
+
+#end-game{
+    position: absolute;
+    bottom: 39rem;
+    left: 41rem;
+}
+
+#help-button{
+    position: absolute;
+    bottom: 39rem;
+    left: 39rem;
+}

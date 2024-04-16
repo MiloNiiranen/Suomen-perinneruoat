@@ -8,8 +8,8 @@ h1{
     display: block;
     margin: auto;
     position: absolute;
-    top: 80%;
-    left: 50%;
+    top: 25rem;
+    left: 22rem;
     transform: translate(-50%, -50%);
     font-size: 30px;
     width: 35%;

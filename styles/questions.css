@@ -34,9 +34,9 @@
 }
 
 #next-button{
-    position: relative;
-    top: 20rem;
-    left: 16rem;
+    position: absolute;
+    top: 34rem;
+    left: 35rem;
     height: 4rem;
     width: 6rem;
 }
