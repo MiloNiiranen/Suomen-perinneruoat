@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultContainer = document.querySelector('.container');
 
     if (correctCount !== null) {
-        resultContainer.innerHTML = `<h1>Sait ${correctCount}/10 kysymyksestä oikein!</h1><h1>Kiitos pelaamisesta</h1><button id="restart-Button">Aloita alusta</button>`;
+        resultContainer.innerHTML = `<h1>Sait ${correctCount}/15 kysymyksestä oikein!</h1><h1>Kiitos pelaamisesta</h1><button id="restart-Button">Aloita alusta</button>`;
     } else {
         resultContainer.innerHTML = `<h1>Tulosta ei löytynyt</h1><button id="restart-Button">Aloita alusta</button>`;
     }

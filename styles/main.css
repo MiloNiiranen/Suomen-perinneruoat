@@ -11,6 +11,12 @@
     font-size: small;
 }
 
+#food-picture{
+    position: absolute;
+    bottom: 18.5rem;
+    right: 6rem;
+}
+
 #seuraava {
     position: absolute;
     right: 1%; 
@@ -29,8 +35,8 @@
 
 div.ex3 {
     background-color: white;
-    width: 60%; /* Pienennetty prosenttiosuutta */
-    height: 30%; /* Pienennetty prosenttiosuutta */
+    width: 60%; 
+    height: 30%; 
     overflow: auto;
     text-align: left;
     position: absolute;
@@ -38,7 +44,7 @@ div.ex3 {
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid black;
-    padding: 5px; /* Pienennetty paddingia */
+    padding: 5px; 
     
 }
 

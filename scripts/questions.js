@@ -49,6 +49,31 @@ const questions = [
     options: ["Keski Suomen alueelle", "Itä Suomen alueelle", "Eteläisen Suomen alueelle", "Pohjoisen Suomen alueelle"],
     correctAnswer: 3
 },
+{
+    question: "Mikä on perinteinen täyte joulutortulle?",
+    options: ["Mansikkahillo", "Mustikkahillo", "Luumuhillo", "Omenahillo"],
+    correctAnswer: 2
+},
+{
+    question: "Millä joulutortut voidellaan ennen paistamista?",
+    options: ["Kananmuunalla", "Voilla", "Hillolla", "Sokerivedellä"],
+    correctAnswer: 0
+},
+{
+    question: "Mikä on kaurapuuron perusainesosa?",
+    options: ["Vehnähiutale", "Ohrahiutale", "Kaurahiutale", "Ruisjauho"],
+    correctAnswer: 2
+},
+{
+    question: "Kuinka kauan kaurapuuroa yleensä keitetään?",
+    options: ["3-10 minuuttia", "5-10 minuuttia", "20-25 minuuttia", "15-20 minuuttia"],
+    correctAnswer: 0
+},
+{
+    question: "Mitkä ovat joulutortun taikinan täytteet?",
+    options: ["Leivinjauho, voita ja Vettä", "Vehnäjauhoja, voita ja vettä", "Vehnäjauhoja, voita ja maitoa", "Vehnäjauhoja, voita ja kermaa"],
+    correctAnswer: 1
+},
 ];
 
 const questionElement = document.getElementById('question');
