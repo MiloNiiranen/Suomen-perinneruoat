@@ -3,21 +3,369 @@
 <head>
     <title>Suomalaiset perinneruoat</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/start-page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Finnish traditional dishes game">
     <meta name="keywords" content="Finnish traditional dishes, Finnish traditional dishes game, mosaiikki ry">
+    <script src="scripts/main.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Suomen perinneruoat</h1>
 
-        <a href="pages/instructions.html">
-            <button type="button" id="play">Pelaa</button>
-        </a>
+        <!-- Etusivu -->
+        <section id="start-page" >
+            <h1 id="game-name">Suomen perinneruoat</h1>
+            <button id="play-button">Pelaa</button>
+        </section>
+
+        <!-- Pelin ohjeet -->
+        <section id="instructions-page" style="display:none;">
+            
+            <div id="instructions-content">
+                <h1>Pelin ohjeet</h1>
+                <p>Tässä pelissä sinulle esitellään Suomalaisia perinneruokia.<br> Sinulle esitellään kolme eri perinneruokaa.<br> Ruoista sinulle kerrotaan raaka-aineista, valmistuksesta, ja alkuperästä.<br> Kun sinulle on esitelty ruoat, niin sitten tulee kysymyksiä liittyen ruokiin.<br>
+                    Eteenpäin sivuilla, menet oikeassa alakulmassa olevasta nuolesta, ja taaksepäin vasemmasta.<br> kysymysten lopuksi sinulle, näytetään montako meni oikein, ja montako väärin.
+                </p>
+                <h2>Onnea peliin!</h2>
+                <button id="continue">Jatka</button>
+            </div>
+            
+        </section>
+
+        <!-- karjalanpiirakka-sivu -->
+        <section id="karjalanpiirakka-page" style="display:none;">
+            <h2>Karjalanpiirakka</h2>
+            <div id="karjalanpiirakka-content">
+                <picture class="food-picture">
+                    <img src="images/karjalanpiirakka.jpg" alt="kuva" width="500" height="300">
+                </picture>
+        
+                <div class="ex3">
+                    <h2>Miten valmistaa Karjalanpiirakka</h2>
+        
+                    <h3>Taikinan valmistus</h3>
+                    <p>Taikina valmistetaan yleensä sekoittamalla ruisjauhoja, vettä ja suolaa. Joissakin resepteissä voidaan käyttää myös vehnäjauhoja tai hiivaa taikinan valmistamiseen.</p>
+                    <p>Taikinaa vaivataan kunnes se on sileää ja kimmoisaa. Se saattaa vaatia hieman vaivaa ja aikaa, jotta siitä tulee oikeanlaista koostumukseltaan.</p>
+        
+                    <h3>Täytteen valmistus</h3>
+                    <p>Riisitäyte valmistetaan keittämällä puuroriisiä vedessä, kunnes se on pehmeää ja nesteen on imeytynyt kokonaan. Riisin sekaan lisätään yleensä maitoa tai kermaa sekä suolaa maun mukaan.</p>
+                    <p>Kun riisi on kypsää ja täyteläistä, se jäähdytetään ja siihen voidaan halutessa lisätä voita tai munaa antamaan täytteelle lisämakua ja rakennetta.</p>
+        
+                    <h3>Piirakoiden muotoilu ja paistaminen</h3>
+                    <p>Taikina kaulitaan ohueksi levyksi ja leikataan pyöreiksi tai soikeiksi paloiksi.</p>
+                    <p>Jokainen taikinapala täytetään riisitäytteellä ja taitellaan perinteiseen karjalanpiirakan muotoon. Taittelu tehdään yleensä siten, että taikinan reunat jäävät auki ja täyte jää näkyviin keskelle.</p>
+                    <p>Valmiit piirakat paistetaan uunissa, kunnes ne saavat kauniin kullanruskean värin ja taikina on kypsää.</p>
+        
+                    <h2>Alkuperä ja Historia</h2>
+        
+                    <h3>Alkuperä</h3>
+                    <p>Karjalanpiirakka on perinteinen suomalainen ruokalaji, joka juontaa juurensa Karjalan alueelle, nykyiseen Itä-Suomeen ja Venäjän Karjalaan.</p>
+                    <p>Sitä on valmistettu jo vuosisatojen ajan ja se on ollut tärkeä osa karjalaista ruokaperinnettä.</p>
+        
+                    <h3>Historia</h3>
+                    <p>Karjalanpiirakan historia ulottuu kauas menneisyyteen. Sitä on mainittu kirjallisissa lähteissä jo 1600-luvulla.</p>
+                    <p>Alun perin se oli vaatimaton ruoka, jota valmistettiin talonpoikaisissa kodeissa käytettävissä olevista raaka-aineista. Karjalanpiirakat olivat käteviä eväitä mukaan otettaviksi työpelloille ja metsästysretkille.</p>
+        
+                    <h2>Ainesosat</h2>
+        
+                    <h3>Taikina:</h3>
+                    <ul>
+                        <li>Ruisjauhoja: 3 dl</li>
+                        <li>Vettä: noin 1 1/2 dl</li>
+                        <li>Suolaa: ripaus</li>
+                    </ul>
+        
+                    <h3>Täyte:</h3>
+                    <ul>
+                        <li>Puuroriisiä: 1 dl</li>
+                        <li>Vettä keittämiseen: noin 2 dl</li>
+                        <li>Maitoa tai kermaa: 2 dl</li>
+                        <li>Suolaa: ripaus</li>
+                        <li>Voita: 1 rkl (valinnainen)</li>
+                        <li>Munaa: 1 kpl (valinnainen)</li>
+                    </ul>
+                </div>
+                
+                <div class="takaisin">
+                    <button class="takaisin">Takaisin</button>
+                </div>
+               
+                <div class="seuraava">'
+                    <button class="seuraava">Seuraava</button>
+                </div>
+               
+            </div>
+        </section>
+
+        <!-- Mämmi-sivu -->
+        <section id="mämmi-page" style="display:none;">
+            <!-- Mämmi-sivun sisältö -->
+            <div id="mämmi-content">
+                <h1>Mämmi</h1>
+                <figure class="food-picture" class="image-container">
+                    <img src="images/Mämmi.jpg" alt="kuva" width="500" height="300">
+                    <figcaption class="image-caption">
+                        image: Mämmi.jpg (Photo taken by Card~commonswiki), lisenssi: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Lähde: <a href="https://commons.wikimedia.org/w/index.php?curid=90749">Wikimedia Commonsin sivu</a>.
+                    </figcaption>
+                </figure>
+
+                <div class="ex3">
+                    <h2>Miten valmistaa Mämmiä</h2>
+
+                    <h3>Ruisjauhot</h3>
+                    <p>Mämmi valmistetaan ensisijaisesti ruisjauhoista, jotka sekoitetaan veteen muodostaen paksun massan.</p>
+        
+                    <h3>Sekoittaminen</h3>
+                    <p>Ruisjauhot ja vesi sekoitetaan keskenään tasaiseksi massaksi. Usein sekoittamiseen voi kuulua myös käsittelyä, kuten vatkaamista tai vaivaamista, jotta mämmistä saadaan mahdollisimman tasalaatuista.</p>
+        
+                    <h3>Hauduttaminen</h3>
+                    <p>Mämmiseos kaadetaan uunivuokaan tai vastaavaan astiaan ja se haudutetaan miedolla lämmöllä uunissa useiden tuntien ajan. Hauduttamisen aikana mämmin rakenne muuttuu ja sen maku kehittyy.</p>
+        
+                    <h3>Maustaminen</h3>
+                    <p>Mämmiin voidaan lisätä mausteita ja makeutusaineita, kuten sokeria tai siirappia, antamaan sille haluttu maku. Mausteet ja makeutusaineet lisätään yleensä seokseen ennen hauduttamista.</p>
+        
+                    <h3>Jäähdyttäminen</h3>
+                    <p>Kun mämmi on haudutettu, se jäähdytetään ja annetaan levätä jääkaapissa useita tunteja tai yön yli. Jäähdytyksen aikana mämmi tiivistyy ja sen maku syvenee.</p>
+        
+                    <h3>Tarjoilu</h3>
+                    <p>Valmis mämmi tarjoillaan yleensä kylmänä ja se voidaan tarjoilla kermavaahdon tai maidon kanssa. Mämmi on perinteinen herkku erityisesti pääsiäisen aikaan, ja sitä nautitaan usein sellaisenaan tai lisukkeiden kanssa.</p>
+        
+                    <h2>Alkuperä ja historia</h2>
+        
+                    <h3>Alkuperä</h3>
+                    <p>Mämmi on perinteinen suomalainen jälkiruoka, joka juontaa juurensa ainakin 1600-luvulle, mutta sen alkuperää voidaan jäljittää vieläkin kauemmaksi menneisyyteen. Sitä pidetään yhtenä Suomen vanhimmista ruokalajeista.</p>
+        
+                    <h3>Historia</h3>
+                    <p>Mämmin historia liittyy vahvasti Suomen maaseutukulttuuriin ja rukiinviljelyyn. Alun perin mämmiä valmistettiin käyttämällä ruisjauhoja, jotka olivat yleinen viljelykasvi Suomessa ja tarjoutuivat hyvänä raaka-aineena ruoan valmistukseen.</p>
+        
+                    <h2>Raaka-aineet</h2>
+                    <ul>
+                        <li>Ruisjauhoja: 1 dl</li>
+                        <li>Vettä: 7 dl</li>
+                        <li>Suolaa: 1 tl (maun mukaan)</li>
+                        <li>Siirappia: 1 dl (tai sokeria, jos halutaan makeampaa)</li>
+                        <li>Mämmimaltaita: 1 dl (voi olla vaihtelevaa, riippuen halutusta mämmiasteesta)</li>
+                        <li>Ruokasoodaa: 1/4 tl (tukee mämmiasteen syntymistä)</li>
+                    </ul>
+                </div>
+
+                <!-- Takaisin ja Seuraava napit -->
+                
+                <div class="takaisin">
+                    <button class="takaisin">Takaisin</button>
+                </div>
+               
+                <div class="seuraava">'
+                    <button class="seuraava">Seuraava</button>
+                </div>
+               
+
+            </div>
+        </section>
+
+        <!-- poronkäristys-sivu -->
+        <section id="poronkäristys-page" style="display:none;">
+            <h2>Poronkäristys</h2>
+            <div id="poronkäristys-content">
+                <picture class="food-picture">
+                    <img src="" alt="kuva">
+                </picture>
+        
+                <div class="ex3">
+                    <h2>Miten valmistaa Poronkäristys</h2>
+        
+                    <h3>Lihojen leikkaaminen</h3>
+                    <p>Poronliha leikataan ohuiksi siivuiksi tai suikaleiksi. Usein lihat leikataan ensin paloiksi ja sitten ohuiksi suikaleiksi.</p>
+        
+                    <h3>Paistaminen</h3>
+                    <p>Voita tai öljyä kuumennetaan pannulla tai padassa. Kun rasva on kuumaa, poronlihasuikaleet lisätään pannulle ja paistetaan kuumalla lämmöllä, kunnes ne saavat kauniin ruskean värin.</p>
+        
+                    <h3>Maustaminen</h3>
+                    <p>Käristykseen voi lisätä mausteita oman maun mukaan, kuten suolaa, mustapippuria ja sipulia. Mausteet voi lisätä joko paistamisen alussa tai lopussa.</p>
+        
+                    <h3>Hauduttaminen</h3>
+                    <p>Kun poronliha on saanut kauniin värin, se haudutetaan miedolla lämmöllä kannen alla, kunnes se on kypsää ja mureaa. Tarvittaessa käristystä voidaan lisätä hieman vettä tai lihalientä hauduttamisen aikana.</p>
+        
+                    <h3>Tarjoilu</h3>
+                    <p>valmis poronkäristys tarjoillaan perinteisesti perunamuusin ja puolukkahillon kanssa. Se on herkullinen ja täyttävä ruoka, joka sopii erinomaisesti pohjoismaiseen ruokapöytään.</p>
+        
+                    <h2>Alkuperä ja historia</h2>
+        
+                    <h3>Alkuperä</h3>
+                    <p>Poronkäristys on perinteinen suomalainen ruokalaji, joka juontaa juurensa pohjoisen Suomen alueelle, erityisesti Lappiin, missä poronhoito on ollut perinteinen elinkeino vuosisatojen ajan.</p>
+        
+                    <h3>Historia</h3>
+                    <p>Poronkäristys on peräisin poronhoidosta, joka on ollut elintärkeä osa saamelaisen ja pohjoisen Suomen kulttuuria. Poronkäristys kehitettiin tapana hyödyntää poronlihaa täydellisesti ja varmistaa, että mikään osa saaliista ei mennyt hukkaan.</p>
+        
+                    <h2>Raaka-aineet</h2>
+                    <ul>
+                        <li>Poronliha: 500 g poron lapaa tai muita sopivia paloja</li>
+                        <li>Voita tai öljyä paistamiseen: noin 2 rkl</li>
+                        <li>Suolaa: maun mukaan</li>
+                        <li>Mustapippuria: maun mukaan</li>
+                        <li>Vettä tai lihalientä: tarvittaessa hauduttamiseen</li>
+                        <li>Sipulia: 1 iso sipuli (valinnainen, maun mukaan)</li>
+                        <li>Perunamuusia: tarjoiluun</li>
+                        <li>Puolukkahilloa: tarjoiluun</li>
+                    </ul>
+                </div>
+        
+                
+                <div class="takaisin">
+                    <button class="takaisin">Takaisin</button>
+                </div>
+               
+                <div class="seuraava">'
+                    <button class="seuraava">Seuraava</button>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Kaurapuuro-sivu -->
+        <section id="kaurapuuro-page" style="display:none;">
+            <h2>Kaurapuuro</h2>
+            <div id="kaurapuuro-content">
+                <picture class="food-picture">
+                    <img src="images/kaurapuuro.jpg" alt="kuva" width="500" height="300">
+                </picture>
+        
+                <div class="ex3">
+                    <h2>Miten valmistaa Kaurapuuro</h2>
+        
+                    <h3>Puuron valmistus</h3>
+                    <p>Kaurapuuro valmistetaan keittämällä kaurahiutaleita vedessä tai maidossa, 3-10 minuuttia riippuen hiutaleitten koosta. Usein kaurahiutaleita keitetään kiehuvassa vedessä tai maidossa, kunnes puuro on saavuttanut halutun koostumuksen.</p>
+                    <p>Puuroa sekoitetaan säännöllisesti, jotta se ei pala pohjaan. Valmis kaurapuuro voi olla pehmeää ja sileää tai hieman karkeampaa, riippuen siitä, kuinka kauan sitä keitetään.</p>
+        
+                    <h3>Lisukkeet ja maustaminen</h3>
+                    <p>Kaurapuuroa voidaan maustaa monin eri tavoin. Suolaa ja voita lisätään usein antamaan puurolle makua ja kermaisuutta.</p>
+                    <p>Monet pitävät kaurapuurosta myös hunajan, marjojen, pähkinöiden tai hedelmien kanssa. Lisukkeet antavat puurolle lisämakua ja tekevät siitä ravitsevampaa.</p>
+        
+                    <h3>Alkuperä ja historia</h3>
+                    <p>Kaurapuuro on yksi Suomen perinteisimmistä ja suosituimmista ruoka-aineista. Se on ollut osa suomalaista ruokakulttuuria jo vuosisatojen ajan.</p>
+                    <p>Kaurapuuro on ollut suosittu ruoka, koska se on edullista, ravitsevaa ja helppoa valmistaa. Se on ollut tärkeä osa suomalaista aamiaisperinnettä ja sitä on syöty sekä arkena että juhlapyhinä.</p>
+        
+                    <h2>Ainesosat</h2>
+        
+                    <h3>Kaurapuuro:</h3>
+                    <ul>
+                        <li>Kaurahiutaleita: 2 dl</li>
+                        <li>Vettä tai maitoa: noin 5 dl</li>
+                        <li>Suolaa: ripaus</li>
+                        <li>Voita: 1 rkl (valinnainen)</li>
+                    </ul>
+        
+                    <h3>Lisukkeet (valinnaisia)</h3>
+                    <ul>
+                        <li>Kaneli tai sokeria: maun mukaan</li>
+                        <li>Marjoja tai hedelmiä: 1 dl</li>
+                        <li>Pähkinöitä: 1 dl</li>
+                        <li>Jugurttia</li>
+                    </ul>
+                </div>
+
+                
+                <div class="takaisin">
+                    <button class="takaisin">Takaisin</button>
+                </div>
+               
+                <div class="seuraava">'
+                    <button class="seuraava">Seuraava</button>
+                </div>
+                
+
+            </div>
+        </section>
+
+        <!-- Joulutorttu-sivu -->
+        <section id="joulutorttu-page" style="display:none;">
+            <h2>Joulutorttu</h2>
+            <div id="joulutorttu-content">
+                <picture class="food-picture">
+                    <img src="images/joulutorttu.jpg" alt="kuva" width="500" height="300">
+                </picture>
+        
+                <div class="ex3">
+                    <h2>Miten valmistaa Joulutorttu</h2>
+        
+                    <h3>Taikinan valmistus</h3>
+                    <p>Joulutortun taikina valmistetaan sekoittamalla vehnäjauhoja, voita tai margariinia ja vettä. Taikinaa vaivataan kunnes se on tasaista ja sileää.</p>
+                    <p>Taikinaa kaulitaan ohueksi levyksi, ja siitä leikataan neliöitä tai suorakulmioita, joihin täyte asetetaan.</p>
+        
+                    <h3>Täytteen valmistus</h3>
+                    <p>Perinteinen täyte joulutortulle on luumuhillo. Hillo levitetään taikinaneliöiden keskelle ennen taittelua.</p>
+                    <p>Jotkut lisäävät täytteeseen myös mantelilastuja tai mantelimassaa antamaan makua ja rakennetta joulutortulle.</p>
+        
+                    <h3>Joulutortun muotoilu ja paistaminen</h3>
+                    <p>Täytetty taikinaneliö taitellaan perinteiseen joulutortun muotoon, jossa taikinan kulmat taitetaan kohti täytettä, mutta jättävät osan täytteestä näkyviin.</p>
+                    <p>Valmiit joulutortut voidellaan kananmunalla ja paistetaan uunissa, kunnes ne ovat saaneet kauniin kullanruskean värin.</p>
+        
+                    <h2>Alkuperä ja Historia</h2>
+        
+                    <h3>Alkuperä</h3>
+                    <p>Joulutorttu on perinteinen suomalainen joululeivonnainen. Se on saanut inspiraationsa itämaisista leivonnaisista ja on osa suomalaista jouluperinnettä.</p>
+                    <p>Alun perin joulutortut ovat olleet talonpoikaisia leivonnaisia, jotka on valmistettu helposti saatavilla olevista raaka-aineista.</p>
+        
+                    <h3>Historia</h3>
+                    <p>Joulutortun historia ulottuu kauas menneisyyteen, ja se on ollut osa suomalaista joulua jo vuosisatojen ajan. Joulutortut ovat olleet suosittuja erityisesti joulun aikaan, mutta niitä nautitaan myös muina vuodenaikoina.</p>
+        
+                    <h2>Ainesosat</h2>
+        
+                    <h3>Taikina:</h3>
+                    <ul>
+                        <li>Vehnäjauhoja: 3 dl</li>
+                        <li>Voita tai margariinia: 150 g</li>
+                        <li>Vettä: noin 1 dl</li>
+                    </ul>
+        
+                    <h3>Täyte:</h3>
+                    <ul>
+                        <li>Luumuhilloa, omenahilloa tai aprikoosihilloa: noin 200 g</li>
+                        <li>Mantelilastuja tai mantelimassaa: 50 g (valinnainen)</li>
+                    </ul>
+                </div>
+        
+                
+                <div class="takaisin">
+                    <button class="takaisin">Takaisin</button>
+                </div>
+               
+                <div class="seuraava">'
+                    <button class="seuraava">Seuraava</button>
+                </div>
+                
+
+            </div>
+        
+            
+        </section>
+
+        <!-- Kysymyssivu -->
+        <section id="questions-page" style="display:none;">
+
+            <div id="question-container">
+                <h2 id="question">Kysymys tähän</h2>
+                <div id="options">
+                    <button class="option-button" id="button1">Vaihtoehto 1</button>
+                    <button class="option-button" id="button2">Vaihtoehto 2</button>
+                    <button class="option-button" id="button3">Vaihtoehto 3</button>
+                    <button class="option-button" id="button4">Vaihtoehto 4</button>
+                </div>
+            </div>
+
+            <div id="question-count">0/10</div>
+            
+            <button id="next-button">Seuraava</button>
+        </section>
+
+        <section id="results-page" style="display:none;">
+        </section>
+
+        <!-- Lopeta peli nappi -->
+        <button id="end-game">X</button>
+
+        <!-- Apu nappi -->
+        <button id="help-button" style="display: none;">?</button>
     </div>
-
-    
 </body>
 </html>
