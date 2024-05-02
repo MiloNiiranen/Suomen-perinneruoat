@@ -124,16 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
         correctAnswer: 0
     },
     {
-        question: "Mikä näistä ruoista on perinteisesti tarjoiltu useammin jouluna?",
-        options: ["Poronkäristys", "Karjalanpiirakka", "Mämmi", "Ei mikään näistä"],
-        correctAnswer: 0
-    },
-    {
-        question: "Mikä näistä ruoista on ollut osa suomalaista ruokaperinnettä jo vuosisatojen ajan?",
-        options: ["Poronkäristys", "Karjalanpiirakka", "Mämmi", "Kaikki"],
-        correctAnswer: 3
-    },
-    {
         question: "Minkä kanssa mämmiä yleensä tarjoillaan?",
         options: ["Kermavaahdon kanssa", "Maidon kanssa", "Korppujauhojen kanssa", "Mustikkasurvoksen kanssa"],
         correctAnswer: 1
@@ -162,11 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
         question: "Kuinka kauan kaurapuuroa yleensä keitetään?",
         options: ["3-10 minuuttia", "5-10 minuuttia", "20-25 minuuttia", "15-20 minuuttia"],
         correctAnswer: 0
-    },
-    {
-        question: "Mitkä ovat joulutortun taikinan täytteet?",
-        options: ["Leivinjauho, voita ja Vettä", "Vehnäjauhoja, voita ja vettä", "Vehnäjauhoja, voita ja maitoa", "Vehnäjauhoja, voita ja kermaa"],
-        correctAnswer: 1
     },
     ];
 
@@ -279,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showResults(correctCount) {
         resultsPage.style.display = 'block'; // Näytä resultsPage
         questionsPage.style.display = 'none'; // Piilota questionsPage
-        resultsPage.innerHTML = `<h1>Sait ${correctCount}/15 kysymyksestä oikein!</h1><h1>Kiitos pelaamisesta</h1><button id="restart-Button">Aloita alusta</button>`;
+        resultsPage.innerHTML = `<h1 id="oikein-määrä" >Sait ${correctCount}/15 kysymyksestä oikein!</h1><h1 id="kiitos-pelaamisesta" >Kiitos pelaamisesta</h1><button id="restart-Button">Aloita alusta ↻</button>`;
         const restartButton = document.getElementById('restart-Button');
         
         restartButton.addEventListener('click', function() {
