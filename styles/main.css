@@ -19,8 +19,8 @@
     position: absolute;
     right: 1%; 
     bottom: 1%; 
-    width: 14%; 
-    height: 14%; 
+    width: 15%; 
+    height: 15%; 
     cursor: pointer;
     border: none;
     background: none;
@@ -30,16 +30,19 @@
     position: absolute;
     left: 1%; 
     bottom: 1%; 
-    width: 14%; 
-    height: 14%; 
+    width: 15%; 
+    height: 15%; 
     cursor: pointer;
     border: none; 
     background: none;
 }
 
-.seuraava:hover img,
+.seuraava:hover img{
+    content: url('../images/btnNextHover.png');
+}
+
 .takaisin:hover img {
-    opacity: 0.5;
+    content: url('../images/btnPrevHover.png');
 }
 
 .seuraava img,
@@ -77,12 +80,13 @@ div.ex3 {
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 3px, rgba(10, 10, 10, .8) 0px 2px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+    border-radius: 20px;
 }
 
 #end-game:hover{
-    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
+    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 1px 10px -3px;
 }
 
 #help-button{
@@ -91,16 +95,17 @@ div.ex3 {
     position: absolute;
     bottom: 38.5rem;
     left: 38.5rem;
+    border-radius: 20px;
     background-color: green;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    box-shadow: inset rgba(10, 10, 10, 0.548) -2px -2px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 3px, rgba(10, 10, 10, .8) 0px 2px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
 }
 
 #help-button:hover{
-    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
+    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 1px 10px -3px;
 }
 
 #instructions{
@@ -147,24 +152,64 @@ div.ex3 {
     position: relative;
     right: 2rem;
     top: 9rem;
+    border-radius: 20px;
+    background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
+    border: 2px solid #1D2638;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out;
+
 }
 
 #button2{
     position: relative;
     left: 2rem;
     top: 9rem;
+    border-radius: 20px;
+    background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
+    border: 2px solid #1D2638;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out;
 }
 
 #button3{
     position: relative;
     right: 2rem;
     top: 14rem;
+    border-radius: 20px;
+    background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
+    border: 2px solid #1D2638;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
 }
 
 #button4{
     position: relative;
     left: 2rem;
     top: 14rem;
+    border-radius: 20px;
+    background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
+    border: 2px solid #1D2638;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+}
+
+#button1:hover,
+#button2:hover,
+#button3:hover,
+#button4:hover{
+    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
 }
 
 #question{
@@ -199,24 +244,25 @@ div.ex3 {
 }
 
 #game-name{
-    text-align: center;
-    font-size: 40px;
-    margin-top: 8rem;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
 	color: rgb(14, 151, 242);
-	font-size: 60px;
-
+    position: absolute;
+    top: 12.9rem;
+    left: 5.5rem;
+    text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
 
 #play-button{
     display: block;
     margin: auto;
     position: absolute;
-    left: 22rem; 
-    top: 31rem; 
+    left: 33rem; 
+    top: 37rem; 
     transform: translate(-50%, -50%);
     font-size: 30px;
     width: 35%; 
-    height: 10%;
+    height: 9%;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
     border: 2px solid #1D2638;
@@ -234,8 +280,14 @@ div.ex3 {
 
 .food-picture{
     position: relative;
-    display: inline-block; /* varmista, että elementti säilyy rivityksessä */
+    top: 1.5rem;
+    display: inline-block;
     bottom: 1rem;
+    box-shadow: 
+        0 0 0 5px white, /* Ulompi valkoinen reunus */
+        0 0 0 8px #1C6EA4, /* Sininen reunus */
+        0 0 0 11px white, /* Keskinen valkoinen reunus */
+        0 0 0 14px green; /* Vihreä sisus */
 }
 
 .image-caption {
@@ -258,7 +310,6 @@ div.ex3 {
     left: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
     
 }
 
@@ -318,17 +369,41 @@ div.ex3 {
     color: rgb(0, 102, 255);
 }
 
-#oikein-määrä {
+#start-page{
+    background-image: url("../images/bgStartPage2\ \(1\).jpg");
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
     position: absolute;
-    left: 1rem;
-    font-size: 25px;
-    font-weight: bold;
+
 }
 
-#kiitos-pelaamisesta {
+#oikein-määrä {
     position: absolute;
-    top: 2rem;
-    left: 4rem;
-    font-size: 25px;
+    left: 7rem;
+    top: 20rem;
+    font-size: 21px;
     font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+}
+
+#pelin-loppu-text {
+    position: absolute;
+    top: 24rem;
+    left: 10.5rem;
+    font-size: 29px;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+}
+
+.food-name{
+    color: rgb(0, 119, 255);
+    font-size: 25px;
+    margin: 0 auto;
+    position: relative;
+    top: 0.5rem;
 }

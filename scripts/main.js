@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("instructions-page"),
         document.getElementById("karjalanpiirakka-page"),
         document.getElementById("mämmi-page"),
-        document.getElementById("poronkäristys-page"),
+        document.getElementById("runebergintorttu-page"),
         document.getElementById("kaurapuuro-page"),
         document.getElementById("joulutorttu-page"),
         document.getElementById("questions-page"),
@@ -114,23 +114,13 @@ document.addEventListener('DOMContentLoaded', function() {
         correctAnswer: 1
     },
     {
-        question: "Minkä kanssa poronkäristys perinteisesti tarjoillaan?",
-        options: ["Riisin ja soijakastikkeen", "Perunamuusin ja puolukkahillon", "Pastan ja tomaattikastikkeen", "Salaatin ja sinappikastikkeen"],
-        correctAnswer: 1
-    },
-    {
-        question: "Miten poronliha leikataan poronkäristystä varten?",
-        options: ["Pieniksi paloiksi", "Paksuiksi viipaleiksi", " Pitkiksi suikaleiksi", "Pyöreiksi palloiksi"],
-        correctAnswer: 0
-    },
-    {
         question: "Minkä kanssa mämmiä yleensä tarjoillaan?",
         options: ["Kermavaahdon kanssa", "Maidon kanssa", "Korppujauhojen kanssa", "Mustikkasurvoksen kanssa"],
         correctAnswer: 1
     },
     {
-        question: "Mihin päin Suomea poronkäristys juontaa juurensa?",
-        options: ["Keski Suomen alueelle", "Itä Suomen alueelle", "Eteläisen Suomen alueelle", "Pohjoisen Suomen alueelle"],
+        question: "Kenen mukaan runebergin torttu on nimetty?",
+        options: ["Ahlström, Walter Runebergin", "Aalto Alvar Runebergin", "Jean Sibelius Runebergin", "Johan Ludvig Runebergin"],
         correctAnswer: 3
     },
     {
@@ -219,25 +209,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkAnswer(selectedOption) {
         const currentQuestion = shuffledQuestions[currentQuestionIndex];
         const correctAnswerIndex = currentQuestion.correctAnswer;
-
+    
         const selectedButton = Array.from(optionButtons).find(button => button.textContent === selectedOption);
         selectedButton.classList.add('answered');
-
+    
         // Tallenna valitun vaihtoehdon indeksi
         currentQuestion.answeredIndex = Array.from(optionButtons).indexOf(selectedButton);
-
+    
         if (currentQuestion.options[currentQuestion.answeredIndex] === currentQuestion.options[correctAnswerIndex]) {
-            selectedButton.style.backgroundColor = 'green';
+            selectedButton.style.background = 'green';
         } else {
-            selectedButton.style.backgroundColor = 'red';
-            optionButtons[correctAnswerIndex].style.backgroundColor = 'green';
+            selectedButton.style.background = 'red';
+            selectedButton.style.color = 'white'; // Varmista, että teksti on luettavissa punaisella taustalla
+            optionButtons[correctAnswerIndex].style.background = 'green';
         }
-
+    
         optionButtons.forEach(button => button.disabled = true);
-
+    
         // Näytä nextButton vain, jos käyttäjä on vastannut kysymykseen
         nextButton.style.display = 'block';
     }
+
 
     function shuffleArray(array) {
         const shuffledArray = [...array];
@@ -264,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function showResults(correctCount) {
         resultsPage.style.display = 'block'; // Näytä resultsPage
         questionsPage.style.display = 'none'; // Piilota questionsPage
-        resultsPage.innerHTML = `<h1 id="oikein-määrä" >Sait ${correctCount}/15 kysymyksestä oikein!</h1><h1 id="kiitos-pelaamisesta" >Kiitos pelaamisesta</h1><button id="restart-Button">Aloita alusta ↻</button>`;
+        resultsPage.innerHTML = `<h1 id="oikein-määrä" >Sait ${correctCount}/10 kysymyksestä oikein!</h1><h1 id="pelin-loppu-text" >Pelin Loppu!</h1><button id="restart-Button">Aloita alusta ↻</button>`;
         const restartButton = document.getElementById('restart-Button');
         
         restartButton.addEventListener('click', function() {
