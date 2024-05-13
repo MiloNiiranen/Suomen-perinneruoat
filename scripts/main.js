@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("results-page")
     ];
 
+    const helpButton = document.getElementById('help-button'); // Vaihda 'helpButton' oikeaan ID:hen
+    const endGameButton = document.getElementById('end-game'); // Vaihda 'endGameButton' oikeaan ID:hen
+
     let currentPage = 0; // Nykyinen sivu
 
     function showPage(pageIndex) {
@@ -23,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 page.style.display = "none";
             }
         });
+        hideButtonsInStartPageAndHelpPage();
     }
 
     // Aloita peli
@@ -63,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
             showHelp(currentPage);
         }
     });
+
+
     
     function showHelp(previousPage) {
         // Tallentaa nykyinen sivu localStorageen
@@ -78,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Apu nappi
     document.getElementById('help-button').addEventListener('click', function() {
         showHelp(currentPage);
+        helpButton.style.display ="none"
     });
 
     document.getElementById("end-game").addEventListener("click", function() {
@@ -87,7 +94,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 
-
+    function hideButtonsInStartPageAndHelpPage(){
+        if(currentPage === 0){
+            helpButton.style.display ="none"
+            endGameButton.style.display = "none"
+        }
+        else if(currentPage === 1){
+            helpButton.style.display ="none"
+            endGameButton.style.display = "block"
+        }
+        else{
+            helpButton.style.display ="block"
+            endGameButton.style.display = "block"
+        }
+    }
+    hideButtonsInStartPageAndHelpPage()
+    
 
     // Tässä tulee questions sivun koodi!!! 
 
