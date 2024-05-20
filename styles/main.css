@@ -1,4 +1,5 @@
 
+
 .container {
     /* käytin remiä koska se on toimii paremmin responsiivisessa sivussa*/
     width: 43.75rem; /* tämä on 700 px*/
@@ -12,6 +13,7 @@
     font-size: small;
     border-radius: 10px;
     box-shadow: inset rgba(102,102,102,.5) -3px -3px 5px, inset rgba(255,255,255,.9) 3px 3px 5px, rgba(102,102,102,.8) 3px 3px 5px -3px;
+    background-color: #f1f3ce;
 }
 
 
@@ -41,7 +43,7 @@
     content: url('../images/btnNextHover.png');
 }
 
-.takaisin:hover img {
+.takaisin:hover img{
     content: url('../images/btnPrevHover.png');
 }
 
@@ -65,14 +67,40 @@ div.ex3 {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
+    border: 3px solid rgb(0, 119, 255);
     padding: 5px; 
     
 }
 
-#end-game{
-    width: 4%;
-    height: 4%;
+div.ex3 h2 {
+    color: rgb(0, 119, 255);
+}
+
+/* Tässä määritellään vierityspalkin tyyli */
+div.ex3::-webkit-scrollbar {
+    width: 12px; /* Leveys */
+}
+  
+/* Tässä määritellään vierityspalkin viiva */
+div.ex3::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+  
+/* Tässä määritellään vierityspalkin "peukalo" */
+div.ex3::-webkit-scrollbar-thumb {
+    background: rgb(0, 119, 255); /* Vierityspalkin väri */
+    border-radius: 10px; /* Pyöristys */
+}
+  
+/* Tässä määritellään vierityspalkin "peukalon" hover-tila */
+div.ex3::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 79, 170); /* Vierityspalkin väri hover-tilassa */
+}
+
+#end-game {
+    width: 4.5%;
+    height: 4.5%;
     position: absolute;
     bottom: 38.5rem;
     left: 41rem;
@@ -83,18 +111,21 @@ div.ex3 {
     box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 3px, rgba(10, 10, 10, .8) 0px 2px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
     border-radius: 20px;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
 }
 
-#end-game:hover{
+#end-game:hover {
     box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 1px 10px -3px;
 }
 
-#help-button{
-    width: 4%;
-    height: 4%;
+#help-button {
+    width: 4.5%;
+    height: 4.5%;
     position: absolute;
     bottom: 38.5rem;
-    left: 38.5rem;
+    left: 38rem;
     border-radius: 20px;
     background-color: green;
     color: #ffffff;
@@ -102,34 +133,47 @@ div.ex3 {
     cursor: pointer;
     box-shadow: inset rgba(10, 10, 10, 0.548) -2px -2px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 3px, rgba(10, 10, 10, .8) 0px 2px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
 }
 
-#help-button:hover{
+#help-button:hover {
     box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 1px 10px -3px;
 }
 
-#instructions{
+#instructions {
     margin-left: 3rem;
     margin-right: 3rem;
+    position: relative;
+    top: 3rem;
 }
 
-#goodluck-text{
+#instructions-title{
     color: rgb(0, 119, 255);
+    position: relative;
+    top: 1.5rem;
 }
 
-#continue{
+#goodluck-text {
+    color: rgb(0, 119, 255);
+    position: relative;
+    top: 3rem;
+}
+
+#continue {
     display: block;
     margin: auto;
     position: absolute;
     left: 22rem; 
-    top: 28rem; 
+    top: 37rem; 
     transform: translate(-50%, -50%);
     font-size: 30px;
     width: 20%; 
     height: 8%;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
-    border: 2px solid #1D2638;
+    border: 2px solid #1f4a9e;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
@@ -137,21 +181,37 @@ div.ex3 {
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
 }
 
-#continue:hover{
+#continue:hover {
     transform: translate(-50%, -50%) translateY(2px);
     box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
 }
 
-.option-button{
-    width: 40%;
-    height: 80px; /* Muutettu prosentuaaliseksi */
+
+
+#next-button:hover {
+    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
+}
+
+#question-count {
+    position: absolute;
+    bottom: 36rem;
+    left: 20rem;
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(0, 140, 255);
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ffffff 0px 0px 20px, #ffffff 0px 0px 30px, #ffffff 0px 0px 40px, #ffffff 0px 0px 50px, #ffffff 0px 0px 75px;
+    -webkit-text-stroke: 0.5px black;
+    
+}.option-button {
+    width: 42%;
+    height: 15%; /* Muutettu prosentuaaliseksi */
     line-height: 100%; /* Varmista, että nappien teksti on keskitetty */
 }
 
-#button1{
-    position: relative;
+#button1 {
+    position: absolute;
     right: 2rem;
-    top: 9rem;
+    top: 13rem;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
     border: 2px solid #1D2638;
@@ -160,13 +220,14 @@ div.ex3 {
     cursor: pointer;
     box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    font-size: 22px;
 
 }
 
-#button2{
-    position: relative;
+#button2 {
+    position: absolute;
     left: 2rem;
-    top: 9rem;
+    top: 13rem;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
     border: 2px solid #1D2638;
@@ -175,12 +236,13 @@ div.ex3 {
     cursor: pointer;
     box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    font-size: 22px;
 }
 
-#button3{
-    position: relative;
+#button3 {
+    position: absolute;
     right: 2rem;
-    top: 14rem;
+    top: 22rem;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
     border: 2px solid #1D2638;
@@ -188,13 +250,14 @@ div.ex3 {
     font-weight: bold;
     cursor: pointer;
     box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
-    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    font-size: 22px;
 }
 
-#button4{
-    position: relative;
+#button4 {
+    position: absolute;
     left: 2rem;
-    top: 14rem;
+    top: 22rem;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
     border: 2px solid #1D2638;
@@ -202,22 +265,24 @@ div.ex3 {
     font-weight: bold;
     cursor: pointer;
     box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
-    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+    transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    font-size: 22px;
 }
 
 #button1:hover,
 #button2:hover,
 #button3:hover,
-#button4:hover{
+#button4:hover {
     box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
 }
 
-#question{
+#question {
     position: relative;
-    top: 4rem;
+    top: 6rem;
+    font-size: 25px;
 }
 
-#next-button{
+#next-button {
     position: absolute;
     top: 34rem;
     left: 35rem;
@@ -231,19 +296,10 @@ div.ex3 {
     cursor: pointer;
     box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
+    font-size: 35px;
 }
 
-#next-button:hover{
-    box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
-}
-
-#question-count{
-    position: relative;
-    bottom: 13rem;
-    font-size: xx-large;
-}
-
-#game-name{
+#game-name {
     font-size: 50px;
     font-family: Arial, Helvetica, sans-serif;
 	color: rgb(14, 151, 242);
@@ -253,11 +309,11 @@ div.ex3 {
     text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
 
-#play-button{
+#play-button {
     display: block;
     margin: auto;
     position: absolute;
-    left: 22rem; 
+    left: 33rem; 
     top: 36.5rem; 
     transform: translate(-50%, -50%);
     font-size: 30px;
@@ -265,11 +321,11 @@ div.ex3 {
     height: 9%;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
-    border: 2px solid #1D2638;
+    border: 2px solid #1f4a9e;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: inset rgba(10, 10, 10, .5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
+    box-shadow: inset rgba(10, 10, 10, 0.5) -3px -3px 0px, inset rgba(255, 255, 255, .8) 2.5px 2.5px 2px, rgba(10, 10, 10, .8) 0px 5px 8px;
     transition: background-color 0.3s, transform 0.2s ease-out, box-shadow 0.3s ease-out; 
 }
 
@@ -278,7 +334,7 @@ div.ex3 {
     box-shadow: inset rgba(10, 10, 10, .5) -2px -2px 0px, inset rgba(255, 255, 255, 0) 3px 3px 0px, rgba(10, 10, 10, .8) 0px 3px 10px -3px;
 }
 
-.food-picture{
+.food-picture {
     position: relative;
     top: 1.5rem;
     display: inline-block;
@@ -310,18 +366,48 @@ div.ex3 {
     box-sizing: border-box;
 }
 
-#Coldsmokedsalmon-copyright{
-    display: block;
+#background-container {
+    position: relative;
+    top: 5rem;
+    left: 24rem;
+    width: 40%;
+    height: 23%;
+    background-size: cover;
+}
+
+#info2 {
     position: absolute;
-    top: 9.5rem;
-    left: 21.5rem;
-    background-color: rgba(255, 255, 255, 0.9);;
+    right: 21.8rem; 
+    
+}
+
+.info-area {
+    position: absolute;
+    /* Aseta nämä arvot sopiviksi, jotta ne vastaavat kuvien sijaintia taustakuvassa */
+    width: 280px; /* Säädä kuvien koon mukaan */
+    height: 200px; /* Säädä kuvien koon mukaan */
+    /* Esimerkkisijainti - muuta nämä vastaamaan kuviesi sijainteja */
+    bottom: 1px;
+}
+
+.info-box {
+    display: none;
+    position: absolute;
+    top: 7rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 10;
+    width: 260px;
 }
 
 
+/* Näytä .info-box kun .info-area:hover */
+.info-area:hover .info-box {
+    display: block;
+}
 
-
-#instructions-content{
+#instructions-content {
     font-size: large;
 }
 
@@ -337,7 +423,7 @@ div.ex3 {
     height: 10%;
     border-radius: 20px;
     background: linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1));
-    border: 2px solid #1D2638;
+    border: 2px solid #1f4a9e;
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
@@ -361,11 +447,11 @@ div.ex3 {
     position: absolute;
 }
 
-#instructions-content{
+#instructions-content {
     font-size: 25px;
 }
 
-#results-page{
+#results-page {
     background-image: url("../images/bgFinishPage.jpg");
     width: 100%;
     height: 100%; /* Aseta korkeus näytön korkeuden mukaan */
@@ -374,10 +460,9 @@ div.ex3 {
     padding: 0; /* Nollaa täytteet */
     background-repeat: no-repeat;
     position: absolute;
-    color: rgb(0, 102, 255);
 }
 
-#start-page{
+#start-page {
     background-image: url("../images/bgStartPage2\ \(1\).jpg");
     width: 100%;
     height: 100%;
@@ -391,24 +476,33 @@ div.ex3 {
 
 #oikein-määrä {
     position: absolute;
-    left: 7rem;
+    left: 4rem;
     top: 20rem;
-    font-size: 21px;
+    font-size: 29px;
     font-weight: bold;
-    color: #ffffff;
+    color: #FFFFFF;
     text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
 }
 
 #pelin-loppu-text {
     position: absolute;
+    left: 4rem;
+    font-size: 31px;
+    color: rgb(0, 119, 255);
+    
+}
+
+#thanks-for-playing {
+    position: absolute;
+    left: 8rem;
     top: 24rem;
-    left: 10.5rem;
     font-size: 29px;
+    font-weight: bold;
     color: #FFFFFF;
     text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
 }
 
-.food-name{
+.food-name {
     color: rgb(0, 119, 255);
     font-size: 25px;
     margin: 0 auto;
@@ -416,10 +510,17 @@ div.ex3 {
     top: 0.5rem;
 }
 
-#game-language{
+#game-language {
     position: absolute;
-    top: 33rem;
+    top: 33.5rem;
     left: 3rem;
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(0, 119, 255);
+}
+
+#questions-page{
+    background-color: #bfdccf; /* Aseta haluamasi taustaväri */
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }

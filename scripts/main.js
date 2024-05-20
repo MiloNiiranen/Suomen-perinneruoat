@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("runebergintorttu-page"),
         document.getElementById("kaurapuuro-page"),
         document.getElementById("joulutorttu-page"),
+        document.getElementById("kalakukko-page"),
+        document.getElementById("lohikeitto-page"),
+        document.getElementById("silakkalaatikko-page"),
         document.getElementById("questions-page"),
         document.getElementById("results-page")
     ];
@@ -95,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function hideButtonsInStartPageAndHelpPage(){
-        if(currentPage === 0){
+        if(currentPage === 0 || currentPage === 12){
             helpButton.style.display ="none"
             endGameButton.style.display = "none"
         }
@@ -115,56 +118,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Kysymykset
     const questions = [
-    {
-        question: "Mikä on Karjalanpiirakan alkuperä?",
-        options: ["Ruotsissa", "Länsi-Suomessa", "Nykyisessä Itä-Suomessa ja Venäjällä", "Helsingissä"],
-        correctAnswer: 2
-    },
-    {
-        question: "Millainen täyte yleensä laitetaan Karjalanpiirakkaan?",
-        options: ["Riisitäyte", "Puuro", "Vehnätäyte", "Ruistäyte"],
-        correctAnswer: 0
-    },
-    {
-        question: "Kuinka kauan mämmiä yleensä haudutetaan uunissa?",
-        options: ["10 minuuttia",  "1 tunti", "Useita tunteja", "Yli vuorokauden"],
-        correctAnswer: 2
-    },
-    {
-        question: "Mihin aikaan vuodesta mämmi on erityisen suosittua?",
-        options: ["Jouluna", "Pääsiäisenä", "Kesällä", "Halloweenina"],
-        correctAnswer: 1
-    },
-    {
-        question: "Minkä kanssa mämmiä yleensä tarjoillaan?",
-        options: ["Kermavaahdon kanssa", "Maidon kanssa", "Korppujauhojen kanssa", "Mustikkasurvoksen kanssa"],
-        correctAnswer: 1
-    },
-    {
-        question: "Kenen mukaan runebergin torttu on nimetty?",
-        options: ["Ahlström, Walter Runebergin", "Aalto Alvar Runebergin", "Jean Sibelius Runebergin", "Johan Ludvig Runebergin"],
-        correctAnswer: 3
-    },
-    {
-        question: "Mikä on perinteinen täyte joulutortulle?",
-        options: ["Mansikkahillo", "Mustikkahillo", "Luumuhillo", "Omenahillo"],
-        correctAnswer: 2
-    },
-    {
-        question: "Millä joulutortut voidellaan ennen paistamista?",
-        options: ["Kananmuunalla", "Voilla", "Hillolla", "Sokerivedellä"],
-        correctAnswer: 0
-    },
-    {
-        question: "Mikä on kaurapuuron perusainesosa?",
-        options: ["Vehnähiutale", "Ohrahiutale", "Kaurahiutale", "Ruisjauho"],
-        correctAnswer: 2
-    },
-    {
-        question: "Kuinka kauan kaurapuuroa yleensä keitetään?",
-        options: ["3-10 minuuttia", "5-10 minuuttia", "20-25 minuuttia", "15-20 minuuttia"],
-        correctAnswer: 0
-    },
+        {
+            question: "Mikä on Karjalanpiirakan alkuperä?",
+            options: ["Ruotsissa", "Länsi-Suomessa", "Nykyisessä Itä-Suomessa ja Venäjällä", "Helsingissä"],
+            correctAnswer: 2
+        },
+        {
+            question: "Millainen täyte yleensä laitetaan Karjalanpiirakkaan?",
+            options: ["Riisitäyte", "Puuro", "Vehnätäyte", "Ruistäyte"],
+            correctAnswer: 0
+        },
+        {
+            question: "Kuinka kauan mämmiä yleensä haudutetaan uunissa?",
+            options: ["10 minuuttia",  "1 tunti", "Useita tunteja", "Yli vuorokauden"],
+            correctAnswer: 2
+        },
+        {
+            question: "Mihin aikaan vuodesta mämmi on erityisen suosittua?",
+            options: ["Jouluna", "Pääsiäisenä", "Kesällä", "Halloweenina"],
+            correctAnswer: 1
+        },
+        {
+            question: "Miten silakkalaatikko paistetaan?",
+            options: ["Paistetaan uunissa, kunnes perunat ovat kypsiä ja pinta on kauniin ruskea", "Paistetaan pannulla, kunnes kaikki ainekset ovat kypsiä", "Keitetään kattilassa, kunnes perunat ovat kypsiä", "Haudutetaan liedellä, kunnes perunat ovat kypsiä"],
+            correctAnswer: 0
+        },
+        {
+            question: "Kenen mukaan runebergin torttu on nimetty?",
+            options: ["Ahlström, Walter Runebergin", "Aalto Alvar Runebergin", "Jean Sibelius Runebergin", "Johan Ludvig Runebergin"],
+            correctAnswer: 3
+        },
+        {
+            question: "Mitä kasviksia käytetään lohikeitossa?",
+            options: [" Perunoita, porkkanoita ja sipulia", " Perunoita, tomaatteja ja sipulia", "Porkkanoita, kurkkuja ja sipulia", "Perunoita, porkkanoita ja kurkkuja"],
+            correctAnswer: 0
+        },
+        {
+            question: "Millä joulutortut voidellaan ennen paistamista?",
+            options: ["Kananmuunalla", "Voilla", "Hillolla", "Sokerivedellä"],
+            correctAnswer: 0
+        },
+        {
+            question: "Mihin tarkoitukseen kalakukko alun perin valmistettiin?",
+            options: ["Juhla-aterioiksi", "Evääksi pellolle tai metsään työhön lähtiessä", "Myytäväksi toreilla", "Kirkonmenojen jälkeisiksi lounaiksi"],
+            correctAnswer: 1
+        },
+        {
+            question: "Kuinka kauan kaurapuuroa yleensä keitetään?",
+            options: ["3-10 minuuttia", "5-10 minuuttia", "20-25 minuuttia", "15-20 minuuttia"],
+            correctAnswer: 0
+        },
+   
     ];
 
     const questionElement = document.getElementById('question');
@@ -219,9 +223,9 @@ document.addEventListener('DOMContentLoaded', function() {
         currentQuestion.options.forEach((option, index) => {
             optionButtons[index].textContent = option;
             optionButtons[index].classList.remove('answered');
-            optionButtons[index].style.backgroundColor = '';
+            optionButtons[index].style.background = 'linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1))';
             optionButtons[index].disabled = false;
-
+    
             // Päivitä kysymyslaskuri
             const questionCountElement = document.getElementById('question-count');
             questionCountElement.textContent = `${currentQuestionIndex + 1}/${questions.length}`;
@@ -276,14 +280,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Funktio näyttää tulokset
     function showResults(correctCount) {
+        currentPage = 12;
         resultsPage.style.display = 'block'; // Näytä resultsPage
         questionsPage.style.display = 'none'; // Piilota questionsPage
-        resultsPage.innerHTML = `<h1 id="oikein-määrä" >Sait ${correctCount}/10 kysymyksestä oikein!</h1><h1 id="pelin-loppu-text" >Pelin Loppu!</h1><button id="restart-Button">Aloita alusta ↻</button>`;
+        resultsPage.innerHTML = `<h1 id="oikein-määrä">Sait <span style="color: #0000CC; text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;">${correctCount}</span><span style="color: #55FF00"> / </span> <span style="color: #0000CC; text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;">10</span> kysymyksestä oikein!</h1><h1 id="pelin-loppu-text" >Pelin Loppu!</h1> <h1 id="thanks-for-playing">Kiitos Pelaamisesta!</h1> <button id="restart-Button">Aloita alusta ↻</button>`;
         const restartButton = document.getElementById('restart-Button');
         
         restartButton.addEventListener('click', function() {
             resetGame();
         });
+
+        hideButtonsInStartPageAndHelpPage();
     }
 
     function resetGame() {
@@ -292,6 +299,8 @@ document.addEventListener('DOMContentLoaded', function() {
         showCurrentQuestion();
         resultsPage.style.display = 'none'; // Piilottaa resultsPage
         startPage.style.display = 'block'; // Näytää startPage
+        currentPage = 0;
+        hideButtonsInStartPageAndHelpPage()
     }
     
 });
