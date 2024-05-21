@@ -377,8 +377,11 @@ div.ex3::-webkit-scrollbar-thumb:hover {
 
 #info2 {
     position: absolute;
-    right: 21.8rem; 
-    
+    right: 21.8rem;
+}
+
+#info2 .info-box {
+    top: 8.5rem;
 }
 
 .info-area {
