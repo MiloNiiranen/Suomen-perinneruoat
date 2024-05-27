@@ -57,8 +57,36 @@
                 </p>
                 <h3 id="goodluck-text">Onnea peliin!</h3>
                 <button id="continue">Jatka</button>
+                <button id="motive-button">!</button>
             </div>
 
+        </section>
+
+        <section id="motive-page" style="display: none;">
+            <div id="motive-text">
+                <p>
+                    Päätin Luoda tämän pelin, koska haluan esitellä, minkä laisia
+                    perinteisiä ruokia Suomesta löytyy.
+                    Haluan myös kertoa pelissä miten ruuat voi itse tehdä siltä varalta, että haluat aloittaa
+                    ruoanlaiton itse.
+                </p>
+            </div>
+
+            <div id="developers">
+                <p>
+                    Tämän pelin ovat kehittäneet: Milo Niiranen (toisen vuoden
+                    IT-opiskelija Gradiasta) ja Henna Oravuo (... kysyn! opiskelija
+                    Gradiasta).
+                </p>
+            </div>
+
+            <div id="who-did-what">
+                <p>
+                    Peliidea ja ohjelmointi: Milo Niiranen
+                    Pelinäytöt web-suunnittelu: Henna Oravuo ja Milo Niiranen
+                    Peli kehitettiin: 01.4.2024 - 30.5.2024.
+                </p>
+            </div>
         </section>
 
         <!-- karjalanpiirakka-sivu -->
@@ -636,16 +664,18 @@
             <div id="question-container">
                 <h2 id="question">Kysymys tähän</h2>
                 <div id="options">
-                    <button class="option-button" id="button1" data-originalColor="rgb(79, 123, 199)">Vaihtoehto 1</button>
-                    <button class="option-button" id="button2" data-originalColor="rgb(79, 123, 199)">Vaihtoehto 2</button>
-                    <button class="option-button" id="button3" data-originalColor="rgb(79, 123, 199)">Vaihtoehto 3</button>
-                    <button class="option-button" id="button4" data-originalColor="rgb(79, 123, 199)">Vaihtoehto 4</button>
+                    <button class="option-button" id="button1">Vaihtoehto 1</button>
+                    <button class="option-button" id="button2">Vaihtoehto 2</button>
+                    <button class="option-button" id="button3">Vaihtoehto 3</button>
+                    <button class="option-button" id="button4">Vaihtoehto 4</button>
                 </div>
             </div>
 
             <div id="question-count">0<span style="color: #55FF00;">/</span>10</div>
 
             <button id="next-button">🡺</button>
+            
+            <button id="back-button" style="display: none;">🡸</button>
         </section>
 
         <section id="results-page" style="display:none;">

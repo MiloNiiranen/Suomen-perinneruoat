@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("results-page")
     ];
 
-    const helpButton = document.getElementById('help-button'); // Vaihda 'helpButton' oikeaan ID:hen
-    const endGameButton = document.getElementById('end-game'); // Vaihda 'endGameButton' oikeaan ID:hen
+    const helpButton = document.getElementById('help-button'); 
+    const endGameButton = document.getElementById('end-game'); 
+    const motiveButton = document.getElementById('motive-button');
 
     let currentPage = 0; // Nykyinen sivu
 
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     
-    // Takaisin napin kuuntelija
+    
     document.addEventListener("click", function(event) {
         if (event.target.classList.contains("takaisin")) {
             currentPage--;
@@ -74,10 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     function showHelp(previousPage) {
-        // Tallentaa nykyinen sivu localStorageen
+        // Tallentaa nykyisen sivu localStorageen
         localStorage.setItem('previousPage', previousPage.toString());
     
-        // Piilottaa nykyisen sivu
         pages[previousPage].style.display = 'none';
         
         // Näytä ohjesivu
@@ -90,12 +90,22 @@ document.addEventListener('DOMContentLoaded', function() {
         helpButton.style.display ="none"
     });
 
+    // Pelin lopetus nappi
     document.getElementById("end-game").addEventListener("click", function() {
+        localStorage.clear();
         currentPage = 0;  // Asettaa aloitussivun nykyiseksi sivuksi
         showPage(currentPage);
         resetGame();
+        document.getElementById('motive-page').style.display = 'none';
         
     });
+
+    document.getElementById("motive-button").addEventListener("click", function(){
+        document.getElementById('instructions-page').style.display = 'none';
+        document.getElementById('motive-page').style.display = 'block';
+    });
+
+
 
     function hideButtonsInStartPageAndHelpPage(){
         if(currentPage === 0 || currentPage === 12){
@@ -174,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const questionElement = document.getElementById('question');
     const optionButtons = document.querySelectorAll('.option-button');
     const nextButton = document.getElementById('next-button');
+    const backButton = document.getElementById('back-button');
     const resultsPage = document.getElementById('results-page'); // Lisätty resultsPage-muuttuja
     const questionsPage = document.getElementById('questions-page');
     const startPage = document.getElementById('start-page');
@@ -183,41 +194,37 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = function() {
         showCurrentQuestion();
     };
-
+    
     optionButtons.forEach(button => {
         button.addEventListener('click', () => {
             const selectedOption = button.textContent;
             checkAnswer(selectedOption);
         });
     });
-
+    
     nextButton.style.display = 'none';
-
+    backButton.style.display = 'none';
+    
     nextButton.addEventListener('click', () => {
-        // Piilotetaan seuraava-nappula
-        nextButton.style.display = 'none';
-        
-        // Tarkista, onko käyttäjä vastannut nykyiseen kysymykseen
-        let userHasAnswered = false;
-        optionButtons.forEach(button => {
-            if (button.classList.contains('answered')) {
-                userHasAnswered = true;
-            }
-        });
-
-        // Siirry seuraavaan kysymykseen vain, jos käyttäjä on vastannut nykyiseen kysymykseen
-        if (userHasAnswered) {
+        if (currentQuestionIndex < questions.length - 1) {
             currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showCurrentQuestion();
-            } else {
-                const correctAnswers = calculateCorrectAnswers();
-                showResults(correctAnswers); // Näytä tulokset
-            }
+            showCurrentQuestion(true); // Näytä vastattu kysymys
+        } else {
+            const correctAnswers = calculateCorrectAnswers();
+            showResults(correctAnswers);
         }
+        updateNavigationButtons();
     });
-
-    function showCurrentQuestion() {
+    
+    backButton.addEventListener('click', () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            showCurrentQuestion(true); // Näytä vastattu kysymys
+        }
+        updateNavigationButtons();
+    });
+    
+    function showCurrentQuestion(isReview = false) {
         const currentQuestion = shuffledQuestions[currentQuestionIndex];
         questionElement.textContent = currentQuestion.question;
         currentQuestion.options.forEach((option, index) => {
@@ -226,37 +233,53 @@ document.addEventListener('DOMContentLoaded', function() {
             optionButtons[index].style.background = 'linear-gradient(120deg, rgba(79, 123, 199, 1), rgba(107, 158, 223, 1))';
             optionButtons[index].disabled = false;
     
-            // Päivitä kysymyslaskuri
+            if (currentQuestion.answeredIndex !== undefined) {
+                optionButtons[currentQuestion.answeredIndex].classList.add('answered');
+                if (currentQuestion.answeredIndex === currentQuestion.correctAnswer) {
+                    optionButtons[currentQuestion.answeredIndex].style.background = 'green';
+                } else {
+                    optionButtons[currentQuestion.answeredIndex].style.background = 'red';
+                    optionButtons[currentQuestion.correctAnswer].style.background = 'green';
+                }
+                optionButtons.forEach(button => button.disabled = true);
+                nextButton.style.display = 'block';
+            } else {
+                nextButton.style.display = 'none';
+            }
+    
             const questionCountElement = document.getElementById('question-count');
             questionCountElement.textContent = `${currentQuestionIndex + 1}/${questions.length}`;
         });
+    
+        updateNavigationButtons();
     }
-
+    
     function checkAnswer(selectedOption) {
         const currentQuestion = shuffledQuestions[currentQuestionIndex];
+        if (currentQuestion.answeredIndex !== undefined) {
+            return; // Estää uudelleen vastaamisen
+        }
+        
         const correctAnswerIndex = currentQuestion.correctAnswer;
     
         const selectedButton = Array.from(optionButtons).find(button => button.textContent === selectedOption);
         selectedButton.classList.add('answered');
     
-        // Tallenna valitun vaihtoehdon indeksi
         currentQuestion.answeredIndex = Array.from(optionButtons).indexOf(selectedButton);
     
         if (currentQuestion.options[currentQuestion.answeredIndex] === currentQuestion.options[correctAnswerIndex]) {
             selectedButton.style.background = 'green';
         } else {
             selectedButton.style.background = 'red';
-            selectedButton.style.color = 'white'; // Varmista, että teksti on luettavissa punaisella taustalla
+            selectedButton.style.color = 'white';
             optionButtons[correctAnswerIndex].style.background = 'green';
         }
     
         optionButtons.forEach(button => button.disabled = true);
     
-        // Näytä nextButton vain, jos käyttäjä on vastannut kysymykseen
         nextButton.style.display = 'block';
     }
-
-
+    
     function shuffleArray(array) {
         const shuffledArray = [...array];
         for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -265,8 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return shuffledArray;
     }
-
-    // Funktio laskee oikeiden vastausten määrän
+    
     function calculateCorrectAnswers() {
         let correctCount = 0;
         shuffledQuestions.forEach(question => {
@@ -274,15 +296,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 correctCount++;
             }
         });
-        sessionStorage.setItem('correctCount', correctCount); // Tallenna oikeiden vastausten määrä sessionStorageen
+        sessionStorage.setItem('correctCount', correctCount);
         return correctCount;
     }
-
-    // Funktio näyttää tulokset
+    
     function showResults(correctCount) {
         currentPage = 12;
-        resultsPage.style.display = 'block'; // Näytä resultsPage
-        questionsPage.style.display = 'none'; // Piilota questionsPage
+        resultsPage.style.display = 'block';
+        questionsPage.style.display = 'none';
         resultsPage.innerHTML = `<h1 id="oikein-määrä">Sait <span style="color: #0000CC; text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;">${correctCount}</span><span style="color: #55FF00"> / </span> <span style="color: #0000CC; text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;">10</span> kysymyksestä oikein!</h1><h1 id="pelin-loppu-text" >Pelin Loppu!</h1> <h1 id="thanks-for-playing">Kiitos Pelaamisesta!</h1> <button id="restart-Button">Aloita alusta ↻</button>`;
         const restartButton = document.getElementById('restart-Button');
         
@@ -292,15 +313,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
         hideButtonsInStartPageAndHelpPage();
     }
-
+    
     function resetGame() {
         currentQuestionIndex = 0;
-        shuffledQuestions = shuffleArray(questions);
+        shuffledQuestions = shuffleArray(questions).map(question => ({
+            ...question,
+            answeredIndex: undefined // Nollaa vastaustilan
+        }));
         showCurrentQuestion();
-        resultsPage.style.display = 'none'; // Piilottaa resultsPage
-        startPage.style.display = 'block'; // Näytää startPage
+        resultsPage.style.display = 'none';
+        startPage.style.display = 'block';
+        backButton.style.display = 'none';
+        nextButton.style.display = 'none';
+
         currentPage = 0;
-        hideButtonsInStartPageAndHelpPage()
+        hideButtonsInStartPageAndHelpPage();
+    }
+    
+    function updateNavigationButtons() {
+        if (currentQuestionIndex === 0) {
+            backButton.style.display = 'none';
+        } else {
+            backButton.style.display = 'block';
+        }
+    
+        const currentQuestion = shuffledQuestions[currentQuestionIndex];
+        if (currentQuestion.answeredIndex !== undefined) {
+            nextButton.style.display = 'block';
+        } else {
+            nextButton.style.display = 'none';
+        }
     }
     
 });
