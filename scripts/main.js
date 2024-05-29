@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', () => {
         if (currentQuestionIndex < questions.length - 1) {
             currentQuestionIndex++;
-            showCurrentQuestion(true); // Näytä vastattu kysymys
+            showCurrentQuestion(true);
         } else {
             const correctAnswers = calculateCorrectAnswers();
             showResults(correctAnswers);
@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
     backButton.addEventListener('click', () => {
         if (currentQuestionIndex > 0) {
             currentQuestionIndex--;
-            showCurrentQuestion(true); // Näytä vastattu kysymys
+            showCurrentQuestion(true); 
         }
         updateNavigationButtons();
     });
